@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>14_匿名函数_作为返回值用</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+<script type="text/javascript">
+	function  a() {
+		document.write("hello<br>");
+		return function(i){
+			document.write("byebye<br>"+i+"<br>");
+		};
+	}
+	a()("i");               //a（）的结果是执行一次的结果，a（）（）的结果是执行两次结果
+</script>
+</body>
+</html>

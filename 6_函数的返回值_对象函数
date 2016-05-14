@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>8_函数的返回值_对象函数</title>
+</head>
+<body>
+<script type="text/javascript">
+	function add(vala,valb){
+		var sum=valb+vala;
+		return {result:sum,a:vala,b:valb};
+	}
+	var r=add(1,2);
+	document.write(r.a+"+"+r.b+"="+r.result+"<br>");       //1+2=3
+
+
+	function add2(){
+		var sum=0;
+		var arr=new Array();
+		for (var i = 0; i < arguments.length; i++) {
+			sum+=arguments[i];
+			arr[i]=arguments[i];
+		};
+		return {result:sum, origin:arr};
+	}
+	var r2=add2(1,2,3,4,5,6,7,8);
+	var str=r2.origin.join("+");                  //转换为字符串，用＋连接
+	document.write(str+"="+r2.result);            //1+2+...＋8=36
+</script>
+
+</body>
+</html>

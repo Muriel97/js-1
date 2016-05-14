@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2_为什么使用函数</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+	var classes1=[{                  //一个数组
+		name:'smith',
+		age:19,
+		gender:1
+	},{
+		name:'muriel',
+		age:18,
+		gender:0
+	},{
+		name:'john',
+		age:20,
+		gender:1
+	}];
+	var classes2=[{                 //第二个数组
+		name:'rose',
+		age:19,
+		gender:0
+	},{
+		name:'mirror',
+		age:21,
+		gender:1
+	},{
+		name:'jack',
+		age:20,
+		gender:1
+	}];
+
+
+	function getAverageAge(  arr  ){                 //求平均年龄
+		var avgAge=0;
+		var len=arr.length;
+		var sum=0;
+		for (var i = 0; i < len; i++) {
+			var stu=arr[i];
+			sum=sum+stu.age;
+		}
+		avgAge=sum/len;
+		return avgAge;
+	};
+	document.write("一班的平均年龄："+getAverageAge(classes1)+"<br>"  );
+	document.write("二班的平均年龄："+getAverageAge(classes2)+"<br>"  );
+
+
+
+	function getRatio(  arr  ){                       //求男女比例
+		var female=0,male=0;
+		var len=arr.length;
+		var r;
+		for(var i = 0; i < len; i++){
+			var stu=arr[i];
+			if (  stu.gender == 1  ) {
+				male++;
+			}else{
+				female++;
+			}
+		}
+		r=female/male;
+		return r;
+	}
+	document.write(  "一班的男女比例为："+getRatio(classes1)+"<br>"  );
+	document.write(  "二班的男女比例为："+getRatio(classes2)  );
+</script>
+</body>
+</html>

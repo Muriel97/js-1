@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>12_内部私有函数</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+<script type="text/javascript">
+	function show(){
+		//show()函数的子函数，用来包装一些特殊算法
+		function son(){
+			document.write("hello world");
+		}
+		son();
+	}//在外面son()不能被调用
+	//son();   //ReferrnceError: son is not defined
+	// 只能通过父函数来调用
+	show();
+
+
+
+	function suan(a,op,b){
+		function sum(a,b){
+			return a+b;
+		}
+		function sub(a,b){
+			return a-b;
+		}
+		function mul(a,b){
+			return a*b;
+		}
+		
+		if(op='+'){
+			return sum(a,b);
+		}else if(op='-'){
+			return sub(a,b);
+		}else if(op='*'){
+			return mul(a,b);
+		}
+	}
+	document.write(  suan(1,'*',2)  );
+</script>
+</body>
+</html>

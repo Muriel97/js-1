@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>15_匿名函数_重写函数本身_浏览器检测＊</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+<script type="text/javascript">
+	function  a() {
+		document.write("hello<br>");
+		a=function(){
+			document.write("bye<br>");
+		}
+	}
+	a();         //hello，第一次执行
+	a();         //bye，第二次执行
+
+    //兼容性＊
+	function showTable(arr){
+		document.write("检测浏览器<br>");
+		var r=2;
+		if (window.ActiveXObject) {         //window.ActiveXObject：判断是否为ie浏览器
+			r=1;
+		}
+		if (r==1){
+			showTable=function(){
+				//ie用table
+				var arr=arguments[0];
+				document.write("<table border='1' width='800px'>");
+				for (var i = 0; i < arr .length; i++) {
+					document.write("<tr>");
+					document.write("<td>"+arr[i].name+"</td><td>"+arr[i].age+"</td>");
+					document.write("</tr>");
+				};
+				document.write("</table>");
+			}
+		}else if (r==2){
+			showTable=function(){
+				//ff用ul
+				var arr=arguments[0];
+				document.write("<ul>");
+				for (var i = 0; i < arr .length; i++) {      
+					document.write("<li>"+arr[i].name+"</li>")
+					document.write("<li>"+arr[i].age+"</li>")
+					
+				};
+				document.write("</ul>");
+			}
+		}
+	}
+	// function showTree(){
+	// 	document.write("检测浏览器<br>");
+	// 	var r=2;
+	// 	if (windows.ActiveXObject) {
+	// 		r=1;
+	// 	};
+	// 	if (r==1){
+	// 		showTree=function(){
+	// 			document.write("以IE特性来显示tree<br>");
+	// 		}
+	// 	}else if (r==2){
+	// 		showTree=function(){
+	// 			document.write("以ff特性来显示tree<br>");
+	// 		}
+	// 	}
+	// }
+    //在自调用的代码一次性运行下这些函数，
+	(function(){
+		showTable();
+		// showTree();
+	})();
+
+
+    var arr=[{name:"muriel",age:18},{name:"mirror",age:21}];
+	showTable(arr);
+	
+</script>
+</body>
+</html>

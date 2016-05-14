@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>7_参数的值_引用类型_引用传递_对象值的合并</title>
+	<meta charset="utf-8">
+</head>
+<body>
+    <script type="text/javascript">
+        // function showBookInfo(  book  ){
+        // 	var defaulevalue={s
+        // 		name:'未知',
+        // 		pages:500,
+        // 		author:'zm'
+        // 	};
+        // 	book=mergeObject(  defaulevalue,book  );           //调用mergeObject函数，并将defaulevalue和book的值合并到一起 
+        // 	document.write("书名"+book.name+"页数"+book.pages+"作者"+book.author+"<br>");
+
+        // }                   默认值        输入的值
+        function mergeObject(  defaulevalue,realvaule  ){
+        	if (  realvaule && typeof realvaule=='object'  ) {          //判断是否有输入的值，并且判断输入的值是不是对象
+        		for (var i in realvaule) {
+        			defaulevalue[i]=realvaule[i] || defaulevalue[i];     //有输入值则输出输入的值，没有输出则输出默认值
+        		};
+        	};
+        	return defaulevalue;
+        }
+        // var book1={name:'kzhsdg'};
+        // showBookInfo(book1);
+        function showStuInfo(  stu  ){
+       	    var defaulevalue={
+       		    name:'未知',
+       		    age:18,
+       		    gender:1
+       	    };
+       	    stu=mergeObject(  defaulevalue,stu  );          //调用mergeObject函数，并将defaulevalue和stu的值合并到一起 
+            document.write("姓名"+stu.name+"年龄"+stu.age+"性别"+(stu.gender==1?'男':'女')+"<br>");
+        }
+        var stu1={ name:'kagh' };
+        showStuInfo(  stu1  );
+    </script>
+ </body>
+ </html>

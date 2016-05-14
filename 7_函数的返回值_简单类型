@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>8_函数的返回值_简单函数</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+	function add(){
+		var sum=0;
+		for (var i = 0; i < arguments.length ; i++) {
+			sum+=arguments[i];
+		};
+		return sum;
+	}
+	document.write( add(1,2,3)+"<br>" );      //6
+	//没有return返回值，返回undefined
+	function add2(){
+		var x=1;
+	}
+	document.write( add2()+"<br>" );
+</script>
+
+</body>
+</html>

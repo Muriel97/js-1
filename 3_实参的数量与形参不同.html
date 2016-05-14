@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>5_实参的数量与形参不同</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+<script type="text/javascript">
+	function add(  x,y,z  ){
+		return x+y+z;
+	}
+
+	document.write( add(1,2) + "<br>" );           //NaN
+	document.write( add(1,2,3,4) + "<br>" );       //6
+ 
+
+    //不定参：arguments，在函数中有一个隐含的变量，arguments =>数组, 它里面存有传过来的所有的实参的值.
+	function add(){
+		var sum=0;
+		for (var i = 0; i < arguments.length; i++) {
+			sum+=arguments[i];
+		};
+		return sum;
+	}
+
+	document.write(  add(1,4,3,8,5,6)+"<br>"  );        //27
+</script>
+
+</body>
+</html>

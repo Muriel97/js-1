@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>6_参数的值_值传递和引用传递</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+<script type="text/javascript">
+    //值传递，如果实参传递的是基本类型，则传值方式为值传递（复制当前的值）
+    function increment(number){
+		number=number+1;
+		return number;
+	}
+	var a=1;
+	var x=increment(a);
+	alert(  a  );       //1
+	alert(  x  );       //2
+
+	
+	//引用传递
+	var person={
+		name:'mirror',
+		age:21,
+	};
+	function  increment( p ) {
+		p.age+=1;
+	}
+	increment( person );
+	alert(  person.name+"   "+person.age);       //mirror    22
+</script>
+
+</body>
+</html>

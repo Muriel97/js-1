@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>11_函数也是一种数据</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+	var x=1;
+	var y=x;
+	var sum=function(a,b){
+		return a+b;
+	}
+	var add=sum;
+	alert(add(1,2));     //3,函数也是一段代码，所以这段代码也可以赋值给其他变量
+	alert(typeof sum);   //function
+	alert(typeof add);   //function
+</script>
+</body>
+</html>

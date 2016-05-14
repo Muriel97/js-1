@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>13_匿名函数回调＊</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+<script type="text/javascript">
+	function show(arr){
+		for (var i = 0; i < arr.length; i++) {
+			document.write(arr[i]+"<br>")
+		}
+	}
+	function shows(arr){                    //show函数用ul li形式表示
+		document.write("<ul>")
+		for(var i=0;i<arr.length;i++){
+			document.write("<li>"+arr[i]+"</li>");
+		}
+		document.write("</ul>")
+	}
+
+
+
+
+	function suan(){
+		var arr=new Array();
+		for (var i = 0; i < arguments.length-1; i++) {
+			arr[i]=arguments[i]*2;
+		}
+		shows(arr);                       //调用shows函数可以输出算法中输入的arguments
+		if ((typeof arguments[arguments.length-1])=='function'){
+			arguments[arguments.length-1](arr);    //arguments[arguments.length-1]指的是代码，激活代码，要加（）
+		}
+	}
+	//使用匿名函数
+	var add=function(){}
+	suan(2,4,5,7,function(arr){          //性能高，节省了全局变量，
+		document.write("<ul>") 
+		for(var i=0;i<arr.length;i++){
+			document.write("<li>"+arr[i]+"</li>");
+		}
+		document.write("</ul>")
+	})
+</script>
+
+</body>
+</html>

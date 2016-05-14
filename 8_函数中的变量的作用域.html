@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>9_函数中的变量的作用域</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+<script type="text/javascript">
+    var i="apple"
+	function a(){
+		i="pear";     //全局变量
+		document.write("inner i:"+i+"<br>");
+	}
+	a();
+	document.write("outer i:"+i+"<br>");
+
+	function b(){
+		var i="banana";     //局部变量,在函数外访问不到，优先于全局变量
+		document.write("inner2 i:"+i+"<br>");
+	}
+	b();
+	document.write("outer2 i:"+i+"<br>");
+	//写函数时，声明新变量要加var
+</script>
+
+</body>
+</html>
